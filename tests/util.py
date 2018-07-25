@@ -13,7 +13,7 @@ def _support(filename):
 # still need CLI configurability for the Kerberos parameters, though, so can't
 # JUST key off presence of GSSAPI optional dependency...
 # TODO: anyway, s/True/os.environ.get('RUN_GSSAPI', False)/ or something.
-needs_gssapi = pytest.mark.skipif(True, reason="No GSSAPI to test")
+needs_gssapi = pytest.mark.skipif(False, reason="No GSSAPI to test")
 
 
 def needs_builtin(name):

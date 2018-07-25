@@ -48,7 +48,8 @@ _API = "MIT"
 try:
     import gssapi
 
-    GSS_EXCEPTIONS = (gssapi.GSSException,)
+    exception_names = (name for name in dir(gssapi.exceptions) if not name.startswith('_'))
+    GSS_EXCEPTIONS = tuple(getattr(gssapi.exceptions, name) for name in exception_names)
 except (ImportError, OSError):
     try:
         import pywintypes
